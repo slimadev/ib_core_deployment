@@ -1,0 +1,49 @@
+version: '3.8'
+
+services:
+  mysql_ib:
+    image: mysql:8.0
+    container_name: mysql_ib
+    restart: unless-stopped
+    ports:
+      - "3307:3306"
+    volumes:
+      - mysql-data:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: Labsoft2025
+      MYSQL_DATABASE: ibs_db
+      MYSQL_USER: labsoft
+      MYSQL_PASSWORD: Labsoft2025
+    networks:
+      - rabbitmq_default
+
+  ebank_core:
+    image: slimadev/ebank-core:1.0
+    container_name: ebank_core
+    restart: unless-stopped
+    depends_on:
+      - mysql_ib
+    ports:
+      - "9000:9000"
+    environment:
+      BANCA_API_URL: https://102.23.207.177:8443/ls-fretus/api
+      CORS_ORIGIN: ebanking.labsoftapps.com
+      QUARKUS_DATASOURCE_DB_KIND: mysql
+      QUARKUS_DATASOURCE_USERNAME: labsoft
+      QUARKUS_DATASOURCE_PASSWORD: Labsoft2025
+      JDBC_URL: jdbc:mysql://mysql_ib:3306/ibs_db?sessionVariables=sql_mode=NO_ENGINE_SUBSTITUTION&jdbcCompliantTruncation=false
+      QUARKUS_OIDC_AUTH_SERVER_URL: http://keycloak:8080/realms/ibs
+      QUARKUS_OIDC_CLIENT_ID: ibs_core
+      KC_SECRET: Mmia9TKPqI7vDqu2YDWWhIdsQIeU5wJk
+      KC_AUTH_URL: http://keycloak:8080
+      KC_REALMS_URL: http://keycloak:8080/realms/ibs
+      AUDIT_APP_NAME: IB
+    networks:
+      - rabbitmq_default
+
+volumes:
+  mysql-data:
+
+networks:
+  rabbitmq_default:
+    external: true
