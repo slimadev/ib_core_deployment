@@ -12,6 +12,12 @@ services:
       - labsoft-ibs-network
     ports:
       - "9000:9000"
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.ebank_core.rule=Host(`ebcore.labsoftapps.com`)"
+      - "traefik.http.routers.ebank_core.entrypoints=websecure"
+      - "traefik.http.routers.ebank_core.tls=true"
+      - "traefik.http.services.ebank_core.loadbalancer.server.port=9000"
     environment:
       BANCA_API_URL: https://102.23.207.177:8443/ls-fretus/api
       CORS_ORIGIN: https://ebanking.labsoftapps.com
