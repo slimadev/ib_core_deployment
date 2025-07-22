@@ -17,7 +17,7 @@ services:
       CORS_ORIGIN: https://ebanking.labsoftapps.com
       QUARKUS_DATASOURCE_DB_KIND: mysql
       QUARKUS_DATASOURCE_USERNAME: ibs
-      QUARKUS_DATASOURCE_PASSWORD: ibs*#ibs
+      QUARKUS_DATASOURCE_PASSWORD: Ibs@2025!
       QUARKUS_DATASOURCE_JDBC_URL: jdbc:mysql://172.16.16.1:3306/ibs?sessionVariables=sql_mode=NO_ENGINE_SUBSTITUTION&jdbcCompliantTruncation=false
       QUARKUS_OIDC_AUTH_SERVER_URL: http://keycloak:8080/realms/ibs
       QUARKUS_OIDC_CLIENT_ID: ibs_core
