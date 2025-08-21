@@ -11,7 +11,7 @@ services:
     networks:
       - labsoft-ibs-network
     ports:
-      - "9000"
+      - "9000:9000"
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.ebank_core.rule=Host(`ebanking-teste.solido.co.mz`)"
