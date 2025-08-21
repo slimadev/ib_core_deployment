@@ -20,14 +20,14 @@ services:
       - "traefik.http.services.ebank_core.loadbalancer.server.port=9000"
     environment:
       BANCA_API_URL: https://102.23.207.177:8443/ls-fretus/api
-      CORS_ORIGIN: https://ebanking.labsoftapps.com
+      CORS_ORIGIN: https://ebanking-teste.solido.co.mz
       QUARKUS_DATASOURCE_DB_KIND: mysql
       QUARKUS_DATASOURCE_USERNAME: ibs
       QUARKUS_DATASOURCE_PASSWORD: Ibs@2025!
-      QUARKUS_DATASOURCE_JDBC_URL: jdbc:mysql://172.16.16.1:3306/ibs?sessionVariables=sql_mode=NO_ENGINE_SUBSTITUTION&jdbcCompliantTruncation=false
+      QUARKUS_DATASOURCE_JDBC_URL: jdbc:mysql://172.31.2.171:3306/ibs?sessionVariables=sql_mode=NO_ENGINE_SUBSTITUTION&jdbcCompliantTruncation=false
       QUARKUS_OIDC_AUTH_SERVER_URL: http://keycloak:8080/realms/ibs
       QUARKUS_OIDC_CLIENT_ID: ibs_core
-      KC_SECRET: 0Sn83UGfzmD1OH0gvdDvd5H4lHgbkokF
+      KC_SECRET: bTLtA3CqTkBLz4IMjVPQKPFRBqkWZ1qy
       KC_AUTH_URL: http://keycloak:8080
       KC_REALMS_URL: http://keycloak:8080/realms/ibs
       AUDIT_APP_NAME: IB
