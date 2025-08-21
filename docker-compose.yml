@@ -14,7 +14,7 @@ services:
       - "9000:9000"
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.ebank_core.rule=Host(`ebanking-teste.solido.co.mz`)"
+      - "traefik.http.routers.ebank_core.rule=Host(`ebcore-teste.solido.co.mz`)"
       - "traefik.http.routers.ebank_core.entrypoints=websecure"
       - "traefik.http.routers.ebank_core.tls=true"
       - "traefik.http.services.ebank_core.loadbalancer.server.port=9000"
