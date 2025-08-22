@@ -10,7 +10,6 @@ services:
     restart: unless-stopped
     networks:
       - labsoft-ibs-network
-      - coolify
     environment:
       BANCA_API_URL: https://102.23.207.177:8443/ls-fretus/api
       CORS_ORIGIN: https://ebanking-teste.solido.co.mz
@@ -24,3 +23,6 @@ services:
       KC_AUTH_URL: http://keycloak:8080
       KC_REALMS_URL: http://keycloak:8080/realms/ibs
       AUDIT_APP_NAME: IB
+    labels:
+      - "traefik.http.services.ebank_core.loadbalancer.server.port=8080"
+      
