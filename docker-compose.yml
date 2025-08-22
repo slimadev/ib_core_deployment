@@ -2,8 +2,8 @@ version: "3"
 networks:
   labsoft-ibs-network:
     external: true
-    ingress_network:
-      external: true
+  ingress_network:
+    external: true
 services:
   ebank_core:
     image: slimadev/ebank-core:solido
