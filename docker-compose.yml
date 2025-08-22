@@ -2,7 +2,7 @@ version: "3"
 networks:
   labsoft-ibs-network:
     external: true
-  ingress_network:
+  tokg00gsc048wows0g4gwoo0:
     external: true
 services:
   ebank_core:
@@ -11,7 +11,7 @@ services:
     restart: unless-stopped
     networks:
       - labsoft-ibs-network
-      - ingress_network
+      - tokg00gsc048wows0g4gwoo0
     environment:
       BANCA_API_URL: https://102.23.207.177:8443/ls-fretus/api
       CORS_ORIGIN: https://ebanking-teste.solido.co.mz
